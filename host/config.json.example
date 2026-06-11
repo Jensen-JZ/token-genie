@@ -1,0 +1,5 @@
+{
+  "port": 8787,
+  "refresh_seconds": 120,
+  "auth_key": "your-access-key"
+}

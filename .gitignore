@@ -1,0 +1,21 @@
+# ---- secrets (NEVER commit) ----
+firmware/token-meter/include/secrets.h
+host/config.json
+**/.credentials.json
+**/auth.json
+*.api_token
+*run_token*
+
+# ---- vendored Waveshare reference libs (343 MB; download separately, see README) ----
+firmware/waveshare-ref/
+
+# ---- build / deps ----
+.pio/
+host/node_modules/
+**/__pycache__/
+*.pyc
+
+# ---- editor / local tooling ----
+.claude/
+.vscode/
+.DS_Store
