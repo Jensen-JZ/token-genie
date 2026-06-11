@@ -972,9 +972,12 @@ void loop() {
     char c = Serial.read();
     if (c == 'N') on_tap();
     else if (c == 'D' && g_fb) {   // dump full-screen mirror as a screenshot
+      Serial.setTxTimeoutMs(2000);   // let the 434 KB dump block through (TX is otherwise non-blocking)
       Serial.write((const uint8_t *)"FBSTART", 7);
       Serial.write((const uint8_t *)g_fb, SIZE * SIZE * 2);
       Serial.write((const uint8_t *)"FBEND", 5);
+      Serial.flush();
+      Serial.setTxTimeoutMs(0);
     }
   }
 
