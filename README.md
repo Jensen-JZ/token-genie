@@ -7,7 +7,15 @@ It reads the **official** 5-hour and 7-day usage limits straight from the same
 OAuth endpoints the CLIs use — not local log estimates — so the percentages and
 reset countdowns match what you see in the apps.
 
-![Claude](claudecode-color.png) ![Codex](codex-color.png)
+<p align="center">
+  <img src="assets/claude.png" width="230" alt="Claude page">
+  <img src="assets/codex.png" width="230" alt="Codex page">
+</p>
+<p align="center">
+  <img src="assets/info.png" width="230" alt="Info / diagnostics page">
+  <img src="assets/setup.png" width="230" alt="WiFi setup page">
+</p>
+<p align="center"><sub>Claude · Codex · Info (diagnostics) · WiFi setup — swipe left/right between pages</sub></p>
 
 ---
 
