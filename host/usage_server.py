@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-esp32-token-meter — host usage bridge
+TokenGenie — host usage bridge
 
 Fetches the REAL per-agent (Claude Code / Codex) rate-limit utilization from
 each vendor's own usage endpoint and serves a compact JSON snapshot over the
@@ -269,7 +269,7 @@ def main():
     t.start()
     port = CONFIG.get("port", 8787)
     srv = ThreadingHTTPServer(("0.0.0.0", port), Handler)
-    print(f"[serve] esp32-token-meter bridge on 0.0.0.0:{port} "
+    print(f"[serve] TokenGenie bridge on 0.0.0.0:{port} "
           f"(/usage, /healthz) claude-code/{_CLAUDE_VER} codex_cli_rs/{_CODEX_VER}",
           flush=True)
     srv.serve_forever()

@@ -1,4 +1,4 @@
-# esp32-token-meter
+# TokenGenie
 
 A desk display that shows your **Claude Code** and **Codex** usage limits on a
 **Waveshare ESP32-S3-Touch-AMOLED-1.75** (466×466 round AMOLED).
@@ -123,7 +123,7 @@ Shared I2C:            touch 0x5A · AXP2101 PMU 0x34 · PCF85063 RTC 0x51
   RTC clock with NTP sync and auto-DST timezones.
 - **Trilingual** UI — short-press BOOT cycles English / 中文 / Deutsch.
 - **WiFi setup** lives on page 4: shows connection status with a Connect/Disconnect
-  toggle; "Start Setup" opens a captive portal (`TokenMeter-Setup` AP) — tap the
+  toggle; "Start Setup" opens a captive portal (`TokenGenie-Setup` AP) — tap the
   screen to cancel.
 
 ### Build & flash (PlatformIO)

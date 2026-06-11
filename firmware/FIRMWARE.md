@@ -97,7 +97,7 @@ build_flags = -DBOARD_HAS_PSRAM -DARDUINO_USB_CDC_ON_BOOT=1 -DARDUINO_USB_MODE=1
 ### Build / flash / monitor
 
 ```bash
-cd ~/workspace/DEMOs/esp32-token-meter/firmware/token-meter
+cd ~/workspace/DEMOs/TokenGenie/firmware/token-meter
 ~/.platformio/penv/bin/pio run                 # build
 ~/.platformio/penv/bin/pio run -t upload       # flash via /dev/ttyACM0
 # serial (see §7 for the gotcha):
@@ -135,10 +135,10 @@ public Cloudflare tunnel — see `../README.md`.
 Connection order (`wifi_bringup`):
 1. `WiFi.begin()` — saved NVS creds (from a prior connect / portal).
 2. `WiFi.begin(WIFI_SSID, WIFI_PASS)` — hardcoded seed from `secrets.h`.
-3. WiFiManager config portal `TokenMeter-Setup` — manual setup.
+3. WiFiManager config portal `TokenGenie-Setup` — manual setup.
 
 **Change WiFi without reflashing:** hold a finger on the screen **during boot**
-(~1.2s) → wipes saved WiFi and opens the `TokenMeter-Setup` portal. Join that AP
+(~1.2s) → wipes saved WiFi and opens the `TokenGenie-Setup` portal. Join that AP
 from a phone/laptop (keep the target hotspot on; use a *second* device since a
 phone can't host its hotspot and join the portal at once), pick the network, save.
 

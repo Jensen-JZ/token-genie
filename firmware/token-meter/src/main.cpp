@@ -1,4 +1,4 @@
-// esp32-token-meter — Stage 6: LVGL widgets, Codey-style 2-page dashboard.
+// TokenGenie — Claude Code / Codex usage meter on a round AMOLED (LVGL).
 // Board: Waveshare ESP32-S3-Touch-AMOLED-1.75 (CO5300 QSPI 466x466, CST9217 touch).
 //
 //   swipe left/right     -> change page (Claude / Codex / Info); PWR click = next
@@ -424,7 +424,7 @@ static void build_ui() {
   lv_obj_set_style_text_align(uiInfoFoot, LV_TEXT_ALIGN_CENTER, 0);
   lv_obj_set_style_text_font(uiInfoFoot, &lv_font_zh_14, 0);   // has the © / · glyphs
   lv_obj_set_style_text_color(uiInfoFoot, lv_color_hex(0x60656E), 0);
-  lv_label_set_text(uiInfoFoot, "© 2026 Jensen-JZ · peritrix.com");
+  lv_label_set_text(uiInfoFoot, "TokenGenie · © 2026 Jensen-JZ");
 
   // page-4: WiFi setup screen — connection status + a tappable "start setup" button.
   // (touch is polled manually, so the button is hit-tested in loop(); no LVGL indev.)
@@ -479,7 +479,7 @@ static void build_ui() {
   lv_obj_set_style_text_font(uiPortal, &lv_font_montserrat_16, 0);
   lv_obj_set_style_text_color(uiPortal, lv_color_hex(0x35B8FF), 0);
   lv_obj_set_style_text_align(uiPortal, LV_TEXT_ALIGN_CENTER, 0);
-  lv_label_set_text(uiPortal, "WiFi SETUP\n\njoin hotspot:\nTokenMeter-Setup");
+  lv_label_set_text(uiPortal, "WiFi SETUP\n\njoin hotspot:\nTokenGenie-Setup");
   lv_obj_align(uiPortal, LV_ALIGN_CENTER, 0, -40);
   lv_obj_add_flag(uiPortal, LV_OBJ_FLAG_HIDDEN);
 
@@ -793,9 +793,9 @@ static void set_dashboard_hidden(bool hide) {   // portal: hide EVERYTHING (core
 static void set_portal_text() {
   const lv_font_t *f = (lang == 1) ? &lv_font_zh_16 : &lv_font_montserrat_16;
   lv_obj_set_style_text_font(uiPortal, f, 0);
-  lv_label_set_text(uiPortal, pickStr("WiFi SETUP\n\njoin hotspot:\nTokenMeter-Setup\n\nthen open\n192.168.4.1",
-                                 "WiFi 配置\n\n手机连接热点:\nTokenMeter-Setup\n\n192.168.4.1",
-                                 "WLAN Setup\n\nHotspot:\nTokenMeter-Setup\n\noeffne\n192.168.4.1"));
+  lv_label_set_text(uiPortal, pickStr("WiFi SETUP\n\njoin hotspot:\nTokenGenie-Setup\n\nthen open\n192.168.4.1",
+                                 "WiFi 配置\n\n手机连接热点:\nTokenGenie-Setup\n\n192.168.4.1",
+                                 "WLAN Setup\n\nHotspot:\nTokenGenie-Setup\n\noeffne\n192.168.4.1"));
   lv_obj_align(uiPortal, LV_ALIGN_CENTER, 0, -40);
   lv_obj_set_style_text_font(uiCancelLbl, f, 0);
   lv_label_set_text(uiCancelLbl, pickStr("Cancel", "取消", "Abbrechen"));
@@ -819,7 +819,7 @@ static void enterPortal(bool wipe) {
   wm.setConfigPortalBlocking(false);    // non-blocking — loop() drives wm.process()
   wm.setConfigPortalTimeout(0);
   Serial.println("[portal] startConfigPortal...");
-  wm.startConfigPortal("TokenMeter-Setup");
+  wm.startConfigPortal("TokenGenie-Setup");
   Serial.printf("[portal] up, AP IP=%s\n", WiFi.softAPIP().toString().c_str());
   portalActive = true;
   portalStart = millis();
